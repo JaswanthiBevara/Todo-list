@@ -1,0 +1,218 @@
+					<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tourism</title>
+	
+	<!--.hd{
+		position:absolute;
+		top:20px;
+		left:220px;
+		font-size:40px;
+	}
+	.list{
+		position:absolute;
+		top:120px;
+		left:240px;
+		font-size:20px;
+		text-decoration:underline;
+	}
+	
+    </style> -->
+<style>
+.container{
+	text-align:center;
+}
+.hd{
+		position:absolute;
+		top:100px;
+		left:220px;
+		font-size:40px;
+		color:cyan;
+	}
+
+ul{
+	position:absolute;
+	top:200px;
+	left:200px;
+	font-size: 25px;
+	color:Maroon;
+	padding: 12px 8px 12px 40px;
+	list-style-type: none;
+	text-align:	center;
+	overflow:hidden;
+	display: inline-block;
+   	 width:15%;
+}
+ul li{
+	position:relative;
+	cursor:pointer;
+  	 transition: 0.2s;
+	font-weight:bold;
+	-webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+ul li:hover{
+background: #f9f9f9;
+}
+ul li.checked {
+  background: Lime;
+  background-size:auto;		
+  
+  text-decoration: underline;
+}
+ul li.checked::before {
+  content: '';
+  position: absolute;
+  border-color: Maroon;
+  border-style: solid;
+  border-width: 0 2px 2px 0;
+  top: 4px;
+  left: 10px;
+  transform: rotate(45deg);
+  height: 15px;
+  width: 7px;
+}
+.close {
+  position: absolute;
+  right: 0;
+  top: -10px;
+  padding: 12px 16px 12px 16px;
+  display: inline-block;
+   	
+}
+input {
+  position:absolute;
+  top:220px;
+  right:250px;
+  font-size: 50px;
+	border-color:white;
+}
+.addBtn {
+  position:absolute;
+  top:200px;
+  right:190px;
+  font-size: 30px;
+  cursor: pointer;
+	color:white;
+}
+.addBtn:hover {
+  background-color: #bbb;
+}
+
+.extra{
+	position:absolute;
+	top:100px;
+	right:560px;
+	color:white;
+	font-size:35px;
+}
+/* Style the "Add" button */
+</style>
+</head>
+
+<body>
+<div class = "container">
+	<img src="https://wallpapercave.com/wp/wp3464924.jpg" style="width:100%">
+	<h2 class="hd">Todo List</h2>
+	<div id="myDIV">
+		<p class="extra">Add another list item</p>
+  		<input type="text" id="myInput" placeholder="Title...">
+  		<p onclick="newElement()" class="addBtn">Add</p>
+	</div>
+
+	<ul id="myUL">
+  		<li>Hit the gym</li>
+  		<li class="checked">Pay bills</li>
+  		<li>Meet George</li>
+  		<li>Buy eggs</li>
+  		<li>Read a book</li>
+  		<li>Organize office</li>
+	</ul>
+</div>
+<script>
+var myNodelist = document.getElementsByTagName("LI");
+var i;
+for (i = 0; i < myNodelist.length; i++) {
+  var span = document.createElement("SPAN");
+  var txt = document.createTextNode("\u00D7");
+  span.className = "close";
+  span.appendChild(txt);
+  myNodelist[i].appendChild(span);
+}
+
+// Click on a close button to hide the current list item
+var close = document.getElementsByClassName("close");
+var i;
+for (i = 0; i < close.length; i++) {
+  close[i].onclick = function() {
+    var div = this.parentElement;
+    div.style.display = "none";
+  }
+}
+
+
+var list = document.querySelector('ul');
+list.addEventListener('click', function(ev) {
+  if (ev.target.tagName === 'LI') {
+    ev.target.classList.toggle('checked');
+  }
+}, false);
+
+function newElement() {
+  var li = document.createElement("li");
+  var inputValue = document.getElementById("myInput").value;
+  var t = document.createTextNode(inputValue);
+  li.appendChild(t);
+  if (inputValue === '') {
+    alert("You must write something!");
+  } else {
+    document.getElementById("myUL").appendChild(li);
+  }
+  document.getElementById("myInput").value = "";
+
+  var span = document.createElement("SPAN");
+  var txt = document.createTextNode("\u00D7");
+  function newElement() {
+  var li = document.createElement("li");
+  var inputValue = document.getElementById("myInput").value;
+  var t = document.createTextNode(inputValue);
+  li.appendChild(t);
+  if (inputValue === '') {
+    alert("You must write something!");
+  } else {
+    document.getElementById("myUL").appendChild(li);
+  }
+  document.getElementById("myInput").value = "";
+
+  var span = document.createElement("SPAN");
+  var txt = document.createTextNode("\u00D7");
+  span.className = "close";
+  span.appendChild(txt);
+  li.appendChild(span);
+
+  for (i = 0; i < close.length; i++) {
+    close[i].onclick = function() {
+      var div = this.parentElement;
+      div.style.display = "none";
+    }
+  }
+}
+  span.appendChild(txt);
+  li.appendChild(span);
+
+  for (i = 0; i < close.length; i++) {
+    close[i].onclick = function() {
+      var div = this.parentElement;
+      div.style.display = "none";
+    }
+  }
+}
+</script>
+</body>
+</html>
